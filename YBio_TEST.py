@@ -5,4 +5,5 @@ def Main():
     dna.Load('C:\\data\\input.txt')
     rna = YRNA(dna)
     rna.Save('C:\\data\\output.txt')
+
 Main()
