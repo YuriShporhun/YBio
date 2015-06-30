@@ -18,7 +18,12 @@ class TestYSeq(TestCase):
         self.assertEqual(g_count, 6, "Actual G count is 6")
 
     def test_Append(self):
-        pass
+        #The test sequence has to contain ATG
+        test_sequence = "ATG"
+        result_sequence = "ATGA"
+        seq = YSeq(test_sequence)
+        seq.Append("A")
+        self.assertEqual(seq, result_sequence)
 
     def test_Save(self):
         pass

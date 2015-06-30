@@ -1,18 +1,21 @@
 class YSeq:
-    '''This class represents a sequence'''
+    """This class represents a sequence"""
 
     #The sequence of the letters of an alphabet
     _sequence = []
 
     #Constructor makes a copy of sequence
     def __init__(self, sequence):
-        '''sequence: the sequence of the letters of some alphabet'''
+        """Constructor constructs sequence as list
+        :param sequence: the sequence of the letters of some alphabet
+        :type sequence: str
+        """
         self._sequence = sequence[:]
     
     def Count(self, symbol):
-        '''This method returns the number of characters in the sequence as int
-        symbol: symbol or sequence of some alphabet
-        '''
+        """This method returns the number of characters in the sequence as int
+        :param symbol: symbol or sequence of some alphabet
+        """
         return self._sequence.count(symbol)
 
     def Append(self, symbol):
