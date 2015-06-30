@@ -49,3 +49,4 @@ class YSeq:
             [self._sequence.extend(x.rstrip('\n')) for x in file]
 
     def LongestCommonSubstring(self, sequence):
+        pass
