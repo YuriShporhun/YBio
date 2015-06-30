@@ -61,4 +61,4 @@ target/
 *.sln
 
 #another trash
-*.xml
+*.idea/
