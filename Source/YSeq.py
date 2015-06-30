@@ -19,17 +19,21 @@ class YSeq:
 
     def append(self, symbol):
         """This method adds a character or sequence
-        symbol: symbol or sequence of some alphabet
+        :param symbol: symbol or sequence of some alphabet
+        :type symbol: str
         """
         self._sequence.extend(symbol)
 
     def save(self, filename, separator = ''):
-        '''This method saves a sequence in the file
-        filename: is path to the file
-        separator: is a string which will added to each symbol in the sequence
-        '''
+        """This method saves a sequence into the particular file
+        :param filename: is path to the file
+        :type filename: str
+        :param separator: is a string which will added to each symbol in the sequence
+        :type separator: str
+        """
         with open(filename, 'w') as file:
-            for item in self._sequence: file.write(str(item) + separator)
+            for item in self._sequence:
+                file.write(str(item) + separator)
 
     def __repr__(self):
         return ''.join(self._sequence)
@@ -46,6 +50,7 @@ class YSeq:
     def load(self, filename):
         """This method loads a sequence from file
         :param filename: is path to the file
+        :type filename: str
         """
         with open(filename) as file:
             [self._sequence.extend(x.rstrip('\n')) for x in file]
