@@ -4,20 +4,23 @@ from YDNA import YDNA
 from YRNA import YRNA
 
 class YSeqFunc:
+
+    @staticmethod
     def HammingDistance(seq_one, seq_two):
-        '''A Static method which calculates the Hamming distance
+        """A Static method which calculates the Hamming distance
         between two sequences for
-        '''
+        """
         distance = 0
         for i in range(0, len(seq_one)):
             if seq_one[i] != seq_two[i]:
                 distance += 1
         return distance
 
+    @staticmethod
     def TransitionTransversionRatio(seq_one, seq_two):
-        '''A Static method which calculates the Transiton and 
+        """A Static method which calculates the Transiton and
         Transversion ratio
-        '''
+        """
         ratio = 0
         transitions = 0
         transversions = 0
