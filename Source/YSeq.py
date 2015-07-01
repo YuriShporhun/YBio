@@ -33,7 +33,7 @@ class YSeq:
         """
         with open(filename, 'w') as file:
             for item in self._sequence:
-                file.write(str(item) + separator)
+                file.write(item + separator)
 
     def __repr__(self):
         return ''.join(self._sequence)

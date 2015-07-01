@@ -27,10 +27,19 @@ class TestYSeq(TestCase):
         self.assertEqual(str(seq), result_sequence)
 
     def test_Save(self):
-        #The test sequence has to contain AAATTTTCCCCCGGGGGG
-        test_sequence = "AAATTTTCCCCCGGGGGG"
-        seq = YSeq(test_sequence)
-        seq.save("TestData/YSeqTestSave.txt", "+")
+        with open("TestData/YSeq/save/Input") as file:
+            example = file.readline()
+
+        seq = YSeq(example)
+        seq.save("TestData/YSeq/save/Output", "+")
+
+        with open("TestData/YSeq/save/ExpectedOutput") as file:
+            expected_result = file.readline()
+
+        with open("TestData/YSeq/save/Output") as file:
+            result = file.readline()
+
+        self.assertEqual(expected_result, result)
 
     def test_Load(self):
         pass
