@@ -3,12 +3,12 @@ class YSeq:
 
     #Constructor makes a copy of sequence
     def __init__(self, sequence):
-        """Constructor constructs sequence as list
+        """Constructor constructs the sequence as a list
         :param sequence: the sequence of the letters of some alphabet
         :type sequence: str
         """
         self._sequence = []
-        self._sequence.extend(sequence)
+        self.append(sequence)
     
     def count(self, symbol):
         """This method returns the number of characters in the sequence as int
@@ -26,9 +26,9 @@ class YSeq:
 
     def save(self, filename, separator = ''):
         """This method saves a sequence into the particular file
-        :param filename: is path to the file
+        :param filename: a path to the file
         :type filename: str
-        :param separator: is a string which will added to each symbol in the sequence
+        :param separator: a string which will be added to each symbol in the sequence
         :type separator: str
         """
         with open(filename, 'w') as file:

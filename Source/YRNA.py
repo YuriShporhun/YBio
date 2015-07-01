@@ -2,6 +2,7 @@ from YDNA import YDNA
 from YSeq import YSeq
 
 class YRNA(YSeq):
+
     def __init__(self, sequence):
         if type(sequence) == YDNA:
             sequence = self.__FromDNA(sequence)
