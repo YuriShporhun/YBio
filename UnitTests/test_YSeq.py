@@ -6,8 +6,7 @@ __author__ = 'Yuri Shporhun'
 class TestYSeq(TestCase):
 
     def test___init__(self):
-        pass
-        #self.assertRaises(TypeError, YSeq(1))
+        self.assertRaises(TypeError, YSeq, 1)
 
     def test_Count(self):
         #The test sequence has to have 3 A, 4 T, 5 C and 6 G
@@ -21,6 +20,8 @@ class TestYSeq(TestCase):
         self.assertEqual(t_count, 4)
         self.assertEqual(c_count, 5)
         self.assertEqual(g_count, 6)
+        self.assertRaises(TypeError, seq.count, 3)
+        self.assertRaises(ValueError, seq.count, "")
 
     def test_Append(self):
         #The test sequence has to contain ATG

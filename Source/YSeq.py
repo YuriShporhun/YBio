@@ -1,37 +1,58 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 class YSeq:
-    """This class represents a sequence"""
+    """
+    En: This class represents a sequence
+    Ru: Данный класс инкапсулирует произвольную последовательность символов
+    """
 
     #Constructor makes a copy of sequence
     def __init__(self, sequence):
         """
         En: This constructor constructs the sequence as a list
-        Ru: ������ ����������� ��������� ��������� ���������� ������������������ �������
+        Ru: Данный конструктор позволяет заполнить хранящуюся последовательность сткокой
         :param sequence: the sequence of the letters of some alphabet
         :type sequence: str
+        :raise TypeError: if sequence type isn't str
         """
         if type(sequence) is not str:
-            raise TypeError("The sequence type has to be 'str'")
+            raise TypeError("The sequence type isn't str")
 
         self._sequence = []
         self.append(sequence)
     
     def count(self, symbol):
         """
-        This method returns the number of characters in the sequence as int
+        En: This method gets the number of occurrences of the symbol in the sequence
+        Ru: Определяет количество вхождений символа symbol в последовательности
         :param symbol: symbol or sequence of some alphabet
         :type symbol: str
+        :return: the number of occurrences of the symbol in the sequence
+        :rtype: int
+        :raise TypeError: if symbol type isn't str
+        :raise ValueError: if symbol is an empty string
         """
+        if type(symbol) is not str:
+            raise TypeError("The symbol type isn't str")
+
+        if not symbol:
+            raise ValueError("The symbol is an empty string")
+
         return self._sequence.count(symbol)
 
     def append(self, symbol):
-        """This method adds a character or sequence
+        """
+        En: This method adds a character or sequence
+        Ru: Добавляет символ или строку к последовательности
         :param symbol: symbol or sequence of some alphabet
         :type symbol: str
         """
         self._sequence.extend(symbol)
 
-    def save(self, filename, separator = ''):
-        """This method saves a sequence into the particular file
+    def save(self, filename, separator=''):
+        """
+        This method saves a sequence into the particular file
         :param filename: a path to the file
         :type filename: str
         :param separator: a string which will be added to each symbol in the sequence
