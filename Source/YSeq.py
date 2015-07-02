@@ -11,7 +11,7 @@ class YSeq:
     def __init__(self, sequence):
         """
         En: This constructor constructs the sequence as a list
-        Ru: Данный конструктор позволяет заполнить хранящуюся последовательность сткокой
+        Ru: Данный конструктор позволяет заполнить хранящуюся последовательность строкой
         :param sequence: the sequence of the letters of some alphabet
         :type sequence: str
         :raise TypeError: if sequence type isn't str
