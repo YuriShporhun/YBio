@@ -7,7 +7,7 @@ class YSeqFunc:
 
     @staticmethod
     def HammingDistance(seq_one, seq_two):
-        """A Static method which calculates the Hamming distance
+        """En: A Static method which calculates the Hamming distance
         between two sequences for
         """
         distance = 0

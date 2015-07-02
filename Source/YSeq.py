@@ -3,15 +3,21 @@ class YSeq:
 
     #Constructor makes a copy of sequence
     def __init__(self, sequence):
-        """Constructor constructs the sequence as a list
+        """
+        En: This constructor constructs the sequence as a list
+        Ru: ƒанный конструктор позвол€ет заполнить хран€щуюс€ последовательность сткокой
         :param sequence: the sequence of the letters of some alphabet
         :type sequence: str
         """
+        if type(sequence) is not str:
+            raise TypeError("The sequence type has to be 'str'")
+
         self._sequence = []
         self.append(sequence)
     
     def count(self, symbol):
-        """This method returns the number of characters in the sequence as int
+        """
+        This method returns the number of characters in the sequence as int
         :param symbol: symbol or sequence of some alphabet
         :type symbol: str
         """

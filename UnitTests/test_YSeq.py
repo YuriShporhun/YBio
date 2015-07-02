@@ -5,6 +5,10 @@ __author__ = 'Yuri Shporhun'
 
 class TestYSeq(TestCase):
 
+    def test___init__(self):
+        pass
+        #self.assertRaises(TypeError, YSeq(1))
+
     def test_Count(self):
         #The test sequence has to have 3 A, 4 T, 5 C and 6 G
         test_sequence = "AAATTTTCCCCCGGGGGG"
