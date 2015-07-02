@@ -14,7 +14,7 @@ class YSeq:
         Ru: Данный конструктор позволяет заполнить хранящуюся последовательность строкой
         :param sequence: the sequence of the letters of some alphabet
         :type sequence: str
-        :raise TypeError: if sequence type isn't str
+        :raises TypeError: if sequence type isn't str
         """
         if type(sequence) is not str:
             raise TypeError("The sequence type isn't str")
@@ -28,16 +28,16 @@ class YSeq:
         Ru: Определяет количество вхождений символа symbol в последовательности
         :param symbol: symbol or sequence of some alphabet
         :type symbol: str
-        :return: the number of occurrences of the symbol in the sequence
+        :returns: the number of occurrences of the symbol in the sequence
         :rtype: int
-        :raise TypeError: if symbol type isn't str
-        :raise ValueError: if symbol is an empty string
+        :raises TypeError: if symbol type isn't str
+        :raises ValueError: if symbol is an empty string
         """
         if type(symbol) is not str:
-            raise TypeError("The symbol type isn't str")
+            raise TypeError("The symbol type has to be str")
 
         if not symbol:
-            raise ValueError("The symbol is an empty string")
+            raise ValueError("The symbol cannot be an empty string")
 
         return self._sequence.count(symbol)
 
@@ -47,7 +47,11 @@ class YSeq:
         Ru: Добавляет символ или строку к последовательности
         :param symbol: symbol or sequence of some alphabet
         :type symbol: str
+        :raises ValueError:  if symbol is an empty string
         """
+        if not symbol:
+            raise ValueError("The symbol cannot be an empty string")
+
         self._sequence.extend(symbol)
 
     def save(self, filename, separator=''):
@@ -75,7 +79,8 @@ class YSeq:
         return self._sequence[index]
 
     def load(self, filename):
-        """This method loads a sequence from file
+        """
+        This method loads a sequence from file
         :param filename: is path to the file
         :type filename: str
         """

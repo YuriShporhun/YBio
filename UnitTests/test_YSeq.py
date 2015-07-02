@@ -30,6 +30,7 @@ class TestYSeq(TestCase):
         seq = YSeq(test_sequence)
         seq.append("A")
         self.assertEqual(str(seq), result_sequence)
+        self.assertRaises(ValueError, seq.append, "")
 
     def test_Save(self):
         with open("TestData/YSeq/save/Input") as file:
