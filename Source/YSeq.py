@@ -7,7 +7,6 @@ class YSeq:
     Ru: Данный класс инкапсулирует произвольную последовательность символов
     """
 
-    #Constructor makes a copy of sequence
     def __init__(self, sequence):
         """
         En: This constructor constructs the sequence as a list
@@ -28,7 +27,7 @@ class YSeq:
         Ru: Определяет количество вхождений символа symbol в последовательности
         :param symbol: symbol or sequence of some alphabet
         :type symbol: str
-        :returns: the number of occurrences of the symbol in the sequence
+        :return: the number of occurrences of the symbol in the sequence
         :rtype: int
         :raises TypeError: if symbol type isn't str
         :raises ValueError: if symbol is an empty string
@@ -54,7 +53,7 @@ class YSeq:
 
         self._sequence.extend(symbol)
 
-    def save(self, filename, separator=''):
+    def save(self, filename, separator=""):
         """
         This method saves a sequence into the particular file
         :param filename: a path to the file

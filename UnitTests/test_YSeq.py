@@ -35,17 +35,19 @@ class TestYSeq(TestCase):
     def test_Save(self):
         with open("TestData/YSeq/save/Input") as file:
             example = file.readline()
-
         seq = YSeq(example)
         seq.save("TestData/YSeq/save/Output", "+")
-
         with open("TestData/YSeq/save/ExpectedOutput") as file:
             expected_result = file.readline()
-
         with open("TestData/YSeq/save/Output") as file:
             result = file.readline()
-
         self.assertEqual(expected_result, result)
+        self.assertRaises(FileNotFoundError, seq.save, "")
 
     def test_Load(self):
         pass
+
+    def test___getitem__(self):
+        seq = YSeq("ATCG")
+        item = seq[2]
+        self.assertEqual(item, "C")

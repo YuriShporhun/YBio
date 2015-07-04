@@ -1,50 +1,75 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 from YSeq import YSeq
 from YRules import YRules
 from YConstants import YConstants
 
 class YDNA(YSeq):
-    '''This class represetnts a DNA sequence'''
+    """
+    En: This class represents a DNA sequence
+    Ru: Данный класс инкапсулирует последовательность ДНК
+    """
+
     __list_of_nucleotides = ['A', 'T', 'C', 'G', '_']
 
-    #Constructor makes a copy of DNA sequence
     def __init__(self, dna_sequence):
-        self.__CheckDNAMistakes(dna_sequence)
+        self.__check_dna_mistakes(dna_sequence)
         super().__init__(dna_sequence)
 
-    def Append(self, symbol):
-        self.__CheckDNAMistakes(symbol)
-        super().Append(symbol)
+    def append(self, symbol):
+        self.__check_dna_mistakes(symbol)
+        super().append(symbol)
 
-    def NucleotidesCount(self):
-        '''This method returns count of nucleotides as tuple
-        nucleotide sequence: A C G T
-        '''
-        a_count = super().Count('A')
-        c_count = super().Count('C')
-        g_count = super().Count('G')
-        t_count = super().Count('T')
-        return (a_count, c_count, g_count, t_count)
-            
-    #This method checks the DNA sequence errors
-    def __CheckDNAMistakes(self, dna_sequence):
+    def nucleotides_count(self):
+        """
+        En: This method returns count of nucleotides as tuple
+        Ru: Данный метод возвращает количество нуклеотидов A C G и T в виде кортежа
+        :return: Tuple that contains the count of A C G and T: (A, C, G, T)
+        """
+        a_count = super().count('A')
+        c_count = super().count('C')
+        g_count = super().count('G')
+        t_count = super().count('T')
+        return a_count, c_count, g_count, t_count
+
+    def __check_dna_mistakes(self, dna_sequence):
+        """
+        En: This method checks the DNA sequence errors
+        :param dna_sequence: custom DNA sequence
+        """
         for nucleotide in dna_sequence:
             if nucleotide not in self.__list_of_nucleotides:
                 raise ValueError(nucleotide)
 
-    def Complement(self):
+    def complement(self):
+        """
+
+        :return:
+        """
         complement = []
         [complement.append(YRules.complement_dna[x]) for x in self._sequence]
         return complement
 
-    def ReverseComplement(self):
+    def reverse_complement(self):
+        """
+
+        :return:
+        """
         return self.Complement()[::-1]
 
-    def EntriesIndexes(self, sub_sequence, indexing = 'zero_based'):
+    def entries_indexes(self, sub_sequence, indexing='zero_based'):
+        """
+
+        :param sub_sequence:
+        :param indexing:
+        :return:
+        """
         indexes = []
-        dna = ''.join(self._sequence)
+        dna_sequence = ''.join(self._sequence)
         start = 0
         while True:
-            current_position = dna.find(str(sub_sequence), start)
+            current_position = dna_sequence.find(str(sub_sequence), start)
             if current_position != -1:
                 start = current_position + 1
                 indexes.append(current_position + YConstants.indexing[indexing])
