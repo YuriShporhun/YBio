@@ -1,5 +1,8 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
 from unittest import TestCase
-from YSeq import YSeq
+from Source.YSeq import YSeq
 
 __author__ = 'Yuri Shporhun'
 
@@ -9,7 +12,7 @@ class TestYSeq(TestCase):
         self.assertRaises(TypeError, YSeq, 1)
 
     def test_Count(self):
-        #The test sequence has to have 3 A, 4 T, 5 C and 6 G
+        # The test sequence has to have 3 A, 4 T, 5 C and 6 G
         test_sequence = "AAATTTTCCCCCGGGGGG"
         seq = YSeq(test_sequence)
         a_count = seq.count("A")
@@ -24,7 +27,7 @@ class TestYSeq(TestCase):
         self.assertRaises(ValueError, seq.count, "")
 
     def test_Append(self):
-        #The test sequence has to contain ATG
+        # The test sequence has to contain ATG
         test_sequence = "ATG"
         result_sequence = "ATGA"
         seq = YSeq(test_sequence)
