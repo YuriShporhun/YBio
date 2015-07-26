@@ -21,7 +21,8 @@ class YDNA(YSeq):
         self.__check_dna_mistakes(symbol)
         super.append(symbol)
 
-    def nucleotides_count(self):
+    @staticmethod
+    def nucleotides_count():
         """
         En: This method returns count of nucleotides as tuple
         Ru: Данный метод возвращает количество нуклеотидов A C G и T в виде кортежа
