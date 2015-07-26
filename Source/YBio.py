@@ -5,6 +5,9 @@ from YRNA import YRNA
 
 class YSeqFunc:
 
+    def __init__(self):
+        pass
+
     @staticmethod
     def hamming_distance(seq_one, seq_two):
         """
@@ -72,12 +75,12 @@ class _YServiceMatrix:
     def get_row_count(self):
         return self._rows
 
-    def GetItem(self, row, col):
+    def get_item(self, row, col):
         return self._matrix[row][col]
 
 class YMatrix(_YServiceMatrix):
     def __init__(self, dna_sequences):
-        super().__init__(dna_sequences)
+        super.__init__(dna_sequences)
 
     def __repr__(self):
         result = ''
@@ -105,7 +108,7 @@ class YMatrix(_YServiceMatrix):
             3: 'T'
            }
         profile = self.Profile()
-        profile._Transpose()
+        profile._transpose()
         sign_flag = True
         with open(filename, 'w') as file:
             for i in range(profile.GetColCount()):
@@ -115,18 +118,19 @@ class YMatrix(_YServiceMatrix):
                     file.write(str(profile.GetItem(j, i)) + ' ')
                 file.write('\n')
 
-    def SaveConsensus(self, filename):
+    def save_consensus(self, filename):
         consensus = self.Consensus()
         consensus.Save(filename)
 
-    def Consensus(self, profile):
+    @staticmethod
+    def consensus(profile):
         consensus = YDNA([])
         indexes = {
             0: 'A',
             1: 'C',
             2: 'G',
             3: 'T'
-           }
+        }
 
         for col in range(profile.GetColCount()):
             max_index = 0
