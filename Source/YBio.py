@@ -6,8 +6,9 @@ from YRNA import YRNA
 class YSeqFunc:
 
     @staticmethod
-    def HammingDistance(seq_one, seq_two):
-        """En: A Static method which calculates the Hamming distance
+    def hamming_distance(seq_one, seq_two):
+        """
+        En: A Static method which calculates the Hamming distance
         between two sequences for
         """
         distance = 0
@@ -17,11 +18,11 @@ class YSeqFunc:
         return distance
 
     @staticmethod
-    def TransitionTransversionRatio(seq_one, seq_two):
-        """A Static method which calculates the Transiton and
+    def transition_transversion_ratio(seq_one, seq_two):
+        """
+        En: A Static method which calculates the Transiton and
         Transversion ratio
         """
-        ratio = 0
         transitions = 0
         transversions = 0
         for i in range(0, len(seq_two)):
@@ -35,17 +36,17 @@ class YSeqFunc:
                     transversions += 1
         return transitions / transversions
 
-class _YServiceMatrix():
+class _YServiceMatrix:
     _matrix = []
     _cols = 0
     _rows = 0
 
     def __init__(self, dna_sequences):
         self._matrix = dna_sequences[:]
-        self._cols = self.__Normalize()
+        self._cols = self.__normalize()
         self._rows = len(self._matrix)
 
-    def __Normalize(self):
+    def __normalize(self):
         max_size = 0
         for seq in range(len(self._matrix)):
             if len(self._matrix[seq]) > max_size:
@@ -56,19 +57,19 @@ class _YServiceMatrix():
                 self._matrix[seq] += ('_' * (max_size - len(self._matrix[seq])))
         return max_size
 
-    def _Transpose(self):
+    def _transpose(self):
         self._matrix = [[self._matrix[j][i] for j in range(len(self._matrix))] for i in range(len(self._matrix[0]))]
         self._cols, self._rows = self._rows, self._cols
 
-    def Append(self, sequence):
+    def append(self, sequence):
         self._matrix.append(sequence)
-        self._cols = self.__Normalize()
+        self._cols = self.__normalize()
         self._rows += 1
 
-    def GetColCount(self):
+    def get_col_count(self):
         return self._cols
 
-    def GetRowCount(self):
+    def get_row_count(self):
         return self._rows
 
     def GetItem(self, row, col):
@@ -79,22 +80,24 @@ class YMatrix(_YServiceMatrix):
         super().__init__(dna_sequences)
 
     def __repr__(self):
-        repr = ''
+        result = ''
         for item in self._matrix:
-            repr += str(item) + '\n'
-        return repr
+            result += str(item) + '\n'
+        return result
 
-    def Profile(self):
+    def profile(self):
         profile = YMatrix([])
+
         for col in range(self._cols):
             temp_dna = YDNA([])
             for row in range(self._rows):
                 temp_dna.Append(self._matrix[row][col])
             profile.Append(temp_dna.Count())
-        profile._Transpose()
+            
+        profile._transpose()
         return profile
 
-    def SaveProfile(self, filename, designations = False):
+    def save_profile(self, filename, designations = False):
         indexes = {
             0: 'A',
             1: 'C',

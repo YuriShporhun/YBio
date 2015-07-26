@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-__author__ = 'ёрий'
+__author__ = 'Yuri Shporhun'
 
 class TestYRNA(TestCase):
   pass

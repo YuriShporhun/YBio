@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 class YSeq:
@@ -61,9 +61,9 @@ class YSeq:
         :param separator: a string which will be added to each symbol in the sequence
         :type separator: str
         """
-        with open(filename, 'w') as file:
+        with open(filename, 'w') as f:
             for item in self._sequence:
-                file.write(item + separator)
+                f.write(item + separator)
 
     def __repr__(self):
         return ''.join(self._sequence)
@@ -83,5 +83,5 @@ class YSeq:
         :param filename: is path to the file
         :type filename: str
         """
-        with open(filename) as file:
-            [self._sequence.extend(x.rstrip('\n')) for x in file]
+        with open(filename) as f:
+            [self._sequence.extend(x.rstrip('\n')) for x in f]
