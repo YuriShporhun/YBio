@@ -15,11 +15,11 @@ class YDNA(YSeq):
 
     def __init__(self, dna_sequence):
         self.__check_dna_mistakes(dna_sequence)
-        super().__init__(dna_sequence)
+        super.__init__(dna_sequence)
 
     def append(self, symbol):
         self.__check_dna_mistakes(symbol)
-        super().append(symbol)
+        super.append(symbol)
 
     def nucleotides_count(self):
         """
@@ -27,10 +27,10 @@ class YDNA(YSeq):
         Ru: Данный метод возвращает количество нуклеотидов A C G и T в виде кортежа
         :return: Tuple that contains the count of A C G and T: (A, C, G, T)
         """
-        a_count = super().count('A')
-        c_count = super().count('C')
-        g_count = super().count('G')
-        t_count = super().count('T')
+        a_count = super.count('A')
+        c_count = super.count('C')
+        g_count = super.count('G')
+        t_count = super.count('T')
         return a_count, c_count, g_count, t_count
 
     def __check_dna_mistakes(self, dna_sequence):
